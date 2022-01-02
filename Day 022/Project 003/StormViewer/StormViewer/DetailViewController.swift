@@ -49,11 +49,11 @@ class DetailViewController: UIViewController {
             print("Image not found")
             return
         }
-        let string = "Storm Photo - \(selectedImage!)"
         
-        let vc = UIActivityViewController(activityItems: [image, string], applicationActivities: [])
+        let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+        
     }
 
 }
