@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
-        
+                
         if let imageToLoad = selectedImage {
             imageView.image = UIImage(named: imageToLoad)
         }
@@ -51,6 +51,8 @@ class DetailViewController: UIViewController {
         }
         
         let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        
+        // This line is for iPad (Where popover -not modal- arrow starts)
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
         

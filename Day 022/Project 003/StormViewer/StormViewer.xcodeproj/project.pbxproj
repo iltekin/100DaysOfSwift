@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C63C2E32783973A008FA6A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CE19514277B255A00430ECB /* Assets.xcassets */; };
 		4CE1950C277B255900430ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1950B277B255900430ECB /* AppDelegate.swift */; };
 		4CE1950E277B255900430ECB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1950D277B255900430ECB /* SceneDelegate.swift */; };
 		4CE19510277B255900430ECB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1950F277B255900430ECB /* ViewController.swift */; };
 		4CE19513277B255900430ECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE19511277B255900430ECB /* Main.storyboard */; };
-		4CE19515277B255A00430ECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CE19514277B255A00430ECB /* Assets.xcassets */; };
 		4CE19518277B255A00430ECB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CE19516277B255A00430ECB /* LaunchScreen.storyboard */; };
 		4CE1952A277B27D000430ECB /* nssl0049.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CE19520277B27D000430ECB /* nssl0049.jpg */; };
 		4CE1952B277B27D000430ECB /* nssl0046.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CE19521277B27D000430ECB /* nssl0046.jpg */; };
@@ -172,11 +172,11 @@
 				4CE1952C277B27D000430ECB /* nssl0091.jpg in Resources */,
 				4CE19531277B27D000430ECB /* nssl0043.jpg in Resources */,
 				4CE19533277B27D000430ECB /* nssl0034.jpg in Resources */,
+				4C63C2E32783973A008FA6A3 /* Assets.xcassets in Resources */,
 				4CE1952A277B27D000430ECB /* nssl0049.jpg in Resources */,
 				4CE1952F277B27D000430ECB /* nssl0041.jpg in Resources */,
 				4CE19530277B27D000430ECB /* nssl0042.jpg in Resources */,
 				4CE19518277B255A00430ECB /* LaunchScreen.storyboard in Resources */,
-				4CE19515277B255A00430ECB /* Assets.xcassets in Resources */,
 				4CE1952D277B27D000430ECB /* nssl0045.jpg in Resources */,
 				4CE19513277B255900430ECB /* Main.storyboard in Resources */,
 			);
