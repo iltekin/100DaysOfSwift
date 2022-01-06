@@ -20,8 +20,9 @@ class ViewController: UITableViewController {
         
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
-        let items = try! fm.contentsOfDirectory(atPath: path)
-
+        var items = try! fm.contentsOfDirectory(atPath: path)
+        items.sort()
+        
         for item in items {
             if item.hasSuffix(".png") {
                 let countryName = item.components(separatedBy: ".")[0].uppercased()
@@ -29,6 +30,7 @@ class ViewController: UITableViewController {
                 flags.append(item)
             }
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,6 +40,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         cell.textLabel?.text = countries[indexPath.row]
+        cell.imageView?.image = UIImage(named: flags[indexPath.row])
         return cell
     }
     
