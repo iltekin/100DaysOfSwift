@@ -41,6 +41,7 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         cell.textLabel?.text = countries[indexPath.row]
         cell.imageView?.image = UIImage(named: flags[indexPath.row])
+                
         return cell
     }
     
