@@ -21,5 +21,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We need to save flags to your Media Library</string>
 </dict>
 </plist>
