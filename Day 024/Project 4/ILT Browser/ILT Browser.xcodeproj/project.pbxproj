@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C09C66B27930B6000D3A36F /* WebsitesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C09C66A27930B6000D3A36F /* WebsitesTableViewController.swift */; };
 		4C4D185227920B5C0075D795 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4D185127920B5C0075D795 /* AppDelegate.swift */; };
 		4C4D185427920B5C0075D795 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4D185327920B5C0075D795 /* SceneDelegate.swift */; };
 		4C4D185627920B5C0075D795 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4D185527920B5C0075D795 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C09C66A27930B6000D3A36F /* WebsitesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsitesTableViewController.swift; sourceTree = "<group>"; };
 		4C4D184E27920B5B0075D795 /* ILT Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ILT Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4D185127920B5C0075D795 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C4D185327920B5C0075D795 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				4C4D185327920B5C0075D795 /* SceneDelegate.swift */,
 				4C4D185527920B5C0075D795 /* ViewController.swift */,
 				4C4D185727920B5C0075D795 /* Main.storyboard */,
+				4C09C66A27930B6000D3A36F /* WebsitesTableViewController.swift */,
 				4C4D185A27920B5D0075D795 /* Assets.xcassets */,
 				4C4D185C27920B5D0075D795 /* LaunchScreen.storyboard */,
 				4C4D185F27920B5D0075D795 /* Info.plist */,
@@ -141,6 +144,7 @@
 				4C4D185627920B5C0075D795 /* ViewController.swift in Sources */,
 				4C4D185227920B5C0075D795 /* AppDelegate.swift in Sources */,
 				4C4D185427920B5C0075D795 /* SceneDelegate.swift in Sources */,
+				4C09C66B27930B6000D3A36F /* WebsitesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
