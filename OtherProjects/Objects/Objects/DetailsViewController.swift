@@ -50,6 +50,9 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         } catch {
             print("An error occured when saving data!")
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newDataAdded"), object: nil)
+        navigationController?.popViewController(animated: true)
 
     }
     
