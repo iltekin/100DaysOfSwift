@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var valueTextField: UITextField!
+    @IBOutlet var typeTextField: UITextField!
+    @IBOutlet var priceTextField: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
@@ -25,9 +27,30 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     
-    
     @IBAction func addTapped(_ sender: Any) {
+   
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let object = NSEntityDescription.insertNewObject(forEntityName: "Objects", into: context)
         
+        object.setValue(UUID(), forKey: "id")
+        object.setValue(typeTextField.text!, forKey: "type")
+        object.setValue(datePicker.date, forKey: "adddate")
+        
+        if let price = Float(priceTextField.text!) {
+            object.setValue(price, forKey: "price")
+        }
+        
+        let photo = imageView.image!.jpegData(compressionQuality: 1)
+        object.setValue(photo, forKey: "photo")
+        
+        do {
+            try context.save()
+            print("Data saved successfully!")
+        } catch {
+            print("An error occured when saving data!")
+        }
+
     }
     
     @objc func blankAreaTapped(){
