@@ -15,6 +15,7 @@
 		4C92B1BE2793630000BCCE75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C92B1BD2793630000BCCE75 /* Assets.xcassets */; };
 		4C92B1C12793630000BCCE75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C92B1BF2793630000BCCE75 /* LaunchScreen.storyboard */; };
 		4C92B1C927936E4400BCCE75 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92B1C827936E4400BCCE75 /* DetailsViewController.swift */; };
+		4CB831B0279B4BFD00D7696E /* ObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB831AF279B4BFD00D7696E /* ObjectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4C92B1C02793630000BCCE75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C92B1C22793630000BCCE75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C92B1C827936E4400BCCE75 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		4CB831AF279B4BFD00D7696E /* ObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				4C92B1B1279362FF00BCCE75 /* AppDelegate.swift */,
 				4C92B1B3279362FF00BCCE75 /* SceneDelegate.swift */,
 				4C92B1B5279362FF00BCCE75 /* ViewController.swift */,
+				4CB831AF279B4BFD00D7696E /* ObjectViewController.swift */,
 				4C92B1C827936E4400BCCE75 /* DetailsViewController.swift */,
 				4C92B1B7279362FF00BCCE75 /* Main.storyboard */,
 				4C92B1BD2793630000BCCE75 /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				4C92B1BC279362FF00BCCE75 /* Objects.xcdatamodeld in Sources */,
 				4C92B1B4279362FF00BCCE75 /* SceneDelegate.swift in Sources */,
 				4C92B1C927936E4400BCCE75 /* DetailsViewController.swift in Sources */,
+				4CB831B0279B4BFD00D7696E /* ObjectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

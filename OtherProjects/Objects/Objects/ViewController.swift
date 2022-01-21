@@ -11,6 +11,7 @@ import CoreData
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var objectNames = [String]()
     var objectIds = [UUID]()
+    var chosenUUID: UUID?
     
     @IBOutlet var tableView: UITableView!
     
@@ -44,16 +45,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         do {
             let results = try context.fetch(fetchRequest)
             
-            for result in results as! [NSManagedObject] {
-                if let object = result.value(forKey: "type") as? String {
-                    objectNames.append(object)
+            if results.count > 0 {
+                for result in results as! [NSManagedObject] {
+                    if let object = result.value(forKey: "type") as? String {
+                        objectNames.append(object)
+                    }
+                    
+                    if let id = result.value(forKey: "id") as? UUID {
+                        objectIds.append(id)
+                    }
+                    
+                    tableView.reloadData()
                 }
-                
-                if let id = result.value(forKey: "id") as? UUID {
-                    objectIds.append(id)
-                }
-                
-                tableView.reloadData()
             }
             
             print("Data fetched successfully!")
@@ -78,6 +81,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chosenUUID = objectIds[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "toObjectVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toObjectVC" {
+            let objectVC = segue.destination as! ObjectViewController
+            objectVC.chosenUUID = chosenUUID
+        }
+    }
     
 
 }
