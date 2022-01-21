@@ -31,25 +31,27 @@ class ObjectViewController: UIViewController {
                 let results = try context.fetch(fetchRequest)
                 if results.count > 0 {
                     for result in results as! [NSManagedObject] {
+                        if let photoData = result.value(forKey: "photo") as? Data {
+                            let photo = UIImage(data: photoData)
+                            imageView.image = photo
+                        }
                         if let type = result.value(forKey: "type") as? String {
                             typeLabel.text = type
                         }
                         if let price = result.value(forKey: "price") as? Float {
                             priceLabel.text = String(price)
                         }
+                        if let adddate = result.value(forKey: "adddate") as? Date {
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateStyle = .full
+                            let date = dateFormatter.string(from: adddate)
+                            adddateLabel.text = date
+                        }
                     }
                 }
             } catch {
                 print("Error!")
             }
-            
-            
-            
-            
-            
-            
         }
-        
     }
-
 }

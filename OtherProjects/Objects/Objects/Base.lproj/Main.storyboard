@@ -104,6 +104,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wtf-g8-Ll3"/>
                     <connections>
+                        <outlet property="addButton" destination="r1h-R7-JNP" id="b7R-67-dkb"/>
                         <outlet property="datePicker" destination="ccS-O5-wm2" id="Pd4-gs-sMG"/>
                         <outlet property="imageView" destination="icK-ez-hXG" id="xaA-H0-92C"/>
                         <outlet property="priceTextField" destination="lPC-ho-IhB" id="ppg-FW-pPU"/>

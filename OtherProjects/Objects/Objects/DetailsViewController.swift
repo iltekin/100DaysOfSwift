@@ -14,9 +14,12 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var priceTextField: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addButton.isEnabled = false
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(blankAreaTapped))
         view.addGestureRecognizer(gestureRecognizer)
@@ -34,7 +37,13 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         let object = NSEntityDescription.insertNewObject(forEntityName: "Objects", into: context)
         
         object.setValue(UUID(), forKey: "id")
-        object.setValue(typeTextField.text!, forKey: "type")
+        
+        if typeTextField.text! == "" {
+            object.setValue("Unknown", forKey: "type")
+        } else {
+            object.setValue(typeTextField.text!, forKey: "type")
+        }
+        
         object.setValue(datePicker.date, forKey: "adddate")
         
         if let price = Float(priceTextField.text!) {
@@ -65,12 +74,16 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
         picker.delegate = self
         picker.sourceType = .camera
         picker.cameraCaptureMode = .photo
-        present(picker, animated: true, completion: nil)
+        present(picker, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: showButton)
+    }
+    
+    func showButton(){
+        addButton.isEnabled = true
     }
     
 }

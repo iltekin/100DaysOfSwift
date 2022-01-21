@@ -94,6 +94,49 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Objects")
+            let uuidString = objectIds[indexPath.row].uuidString
+            
+            fetchRequest.predicate = NSPredicate(format: "id = %@", uuidString)
+            fetchRequest.returnsObjectsAsFaults = false
+            
+            do {
+                
+                let results = try context.fetch(fetchRequest)
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject] {
+                        if (result.value(forKey: "id") as? UUID) != nil {
+                            context.delete(result)
+                            objectIds.remove(at: indexPath.row)
+                            objectNames.remove(at: indexPath.row)
+                            self.tableView.reloadData()
+                        }
+                        break
+                    }
+                    
+                    do {
+                        try context.save()
+                    } catch {
+                        print("Error!")
+                    }
+                    
+                }
+                
+            } catch {
+                print("Error!")
+            }
+            
+            
+        }
+        
+    }
+    
 
 }
 
