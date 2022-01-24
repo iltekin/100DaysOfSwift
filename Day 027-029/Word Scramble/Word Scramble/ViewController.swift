@@ -51,9 +51,14 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: "Enter Answer", message: nil, preferredStyle: .alert)
         ac.addTextField()
         
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { [weak self, weak ac] action in
+        /* let submitAction = UIAlertAction(title: "Submit", style: .default) { [weak self, weak ac] _ in
             guard let answer = ac?.textFields?[0].text else { return }
             self?.submit(answer)
+        } */
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
+            guard let answer = ac.textFields?[0].text else { return }
+            self.submit(answer)
         }
         
         ac.addAction(submitAction)
@@ -62,7 +67,8 @@ class ViewController: UITableViewController {
     }
     
     func submit(_ answer: String) {
-        
+        usedWords.append(answer)
+        tableView.reloadData()
     }
 
 
