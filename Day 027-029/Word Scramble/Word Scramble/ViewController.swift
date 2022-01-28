@@ -26,7 +26,7 @@ class ViewController: UITableViewController {
         
         title = "Word Scramble"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(startGame))
         startGame()
         
     }
@@ -41,7 +41,7 @@ class ViewController: UITableViewController {
         return cell
     }
     
-   func startGame() {
+   @objc func startGame() {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
@@ -51,14 +51,9 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: "Enter Answer", message: nil, preferredStyle: .alert)
         ac.addTextField()
         
-        /* let submitAction = UIAlertAction(title: "Submit", style: .default) { [weak self, weak ac] _ in
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [weak self, weak ac] _ in
             guard let answer = ac?.textFields?[0].text else { return }
             self?.submit(answer)
-        } */
-        
-        let submitAction = UIAlertAction(title: "Submit", style: .default) { _ in
-            guard let answer = ac.textFields?[0].text else { return }
-            self.submit(answer)
         }
         
         ac.addAction(submitAction)
@@ -68,16 +63,19 @@ class ViewController: UITableViewController {
     
     func submit(_ answer: String) {
         let lowerAnswer = answer.lowercased()
+        
         if isPossible(word: lowerAnswer) {
             if isOriginal(word: lowerAnswer){
                 if isReal(word: lowerAnswer){
-                    usedWords.insert(answer, at: 0)
-                    
-                    let indexPath = IndexPath(row: 0, section: 0)
-                    tableView.insertRows(at: [indexPath], with: .automatic)
+                    if isEnough(word: lowerAnswer) {
+                        usedWords.insert(lowerAnswer, at: 0)
+                        let indexPath = IndexPath(row: 0, section: 0)
+                        tableView.insertRows(at: [indexPath], with: .automatic)
+                    }
                 }
             }
         }
+        
     }
     
     func isPossible(word: String) -> Bool {
@@ -87,6 +85,7 @@ class ViewController: UITableViewController {
             if let position = tempWord.firstIndex(of: letter) {
                 tempWord.remove(at: position)
             } else {
+                invalidAnswerAlert(title: "Word not possible", message: "You can't spell that word from \(tempWord)")
                 return false
             }
         }
@@ -95,7 +94,12 @@ class ViewController: UITableViewController {
     }
     
     func isOriginal(word: String) -> Bool {
-        return !usedWords.contains(word)
+        if usedWords.contains(word) {
+            invalidAnswerAlert(title: "Word used already", message: "Be more original!")
+            return false
+        } else {
+            return true
+        }
     }
     
     func isReal(word: String) -> Bool {
@@ -107,10 +111,29 @@ class ViewController: UITableViewController {
         if misspelledRange.location == NSNotFound {
             return true
         } else {
+            invalidAnswerAlert(title: "Word not recognised", message: "You can't just make them up, you know!")
             return false
         }
     }
-
+    
+    func isEnough(word: String) -> Bool {
+        if word == title {
+            invalidAnswerAlert(title: "Answer is the question!", message: "I can't accept the word itself!")
+        } else if word.utf16.count < 3 {
+            invalidAnswerAlert(title: "Shorter than expected!", message: "I can't accept words lower than 3 letters!")
+        } else {
+            return true
+        }
+        
+        return false
+    }
+    
+    func invalidAnswerAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
 
 }
 
