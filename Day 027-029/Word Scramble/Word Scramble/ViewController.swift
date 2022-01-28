@@ -100,9 +100,10 @@ class ViewController: UITableViewController {
     
     func isReal(word: String) -> Bool {
         let checker = UITextChecker()
-        let range = NSRange(location: 0, length: word.utf16.count)
-        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
-
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: NSRange(0..<word.utf16.count), startingAt: 0, wrap: false, language: "en")
+        
+        print(misspelledRange.debugDescription)
+        
         if misspelledRange.location == NSNotFound {
             return true
         } else {
