@@ -17,30 +17,45 @@ class ViewController: UIViewController {
         label1.backgroundColor = .red
         label1.text = "THESE"
         label1.sizeToFit()
+        label1.textAlignment = .center
+        label1.textColor = .white
+        label1.adjustsFontSizeToFitWidth = true
         
         let label2 = UILabel()
         label2.translatesAutoresizingMaskIntoConstraints = false
         label2.backgroundColor = .cyan
         label2.text = "ARE"
         label2.sizeToFit()
+        label2.textAlignment = .center
+        label2.textColor = .blue
+        label2.adjustsFontSizeToFitWidth = true
         
         let label3 = UILabel()
         label3.translatesAutoresizingMaskIntoConstraints = false
         label3.backgroundColor = .yellow
         label3.text = "SOME"
         label3.sizeToFit()
+        label3.textAlignment = .center
+        label3.textColor = .orange
+        label3.adjustsFontSizeToFitWidth = true
         
         let label4 = UILabel()
         label4.translatesAutoresizingMaskIntoConstraints = false
         label4.backgroundColor = .green
         label4.text = "AWESOME"
         label4.sizeToFit()
+        label4.textAlignment = .center
+        label4.textColor = .darkText
+        label4.adjustsFontSizeToFitWidth = true
         
         let label5 = UILabel()
         label5.translatesAutoresizingMaskIntoConstraints = false
         label5.backgroundColor = .orange
-        label5.text = "LABEL"
+        label5.text = "LABELS"
         label5.sizeToFit()
+        label5.textAlignment = .center
+        label5.textColor = .brown
+        label5.adjustsFontSizeToFitWidth = true
         
         view.addSubview(label1)
         view.addSubview(label2)
