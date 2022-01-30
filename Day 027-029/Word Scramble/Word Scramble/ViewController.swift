@@ -58,7 +58,6 @@ class ViewController: UITableViewController {
         
         ac.addAction(submitAction)
         present(ac, animated: true)
-        
     }
     
     func submit(_ answer: String) {
@@ -75,7 +74,6 @@ class ViewController: UITableViewController {
                 }
             }
         }
-        
     }
     
     func isPossible(word: String) -> Bool {
@@ -134,6 +132,4 @@ class ViewController: UITableViewController {
         alert.addAction(action)
         present(alert, animated: true)
     }
-
 }
-
