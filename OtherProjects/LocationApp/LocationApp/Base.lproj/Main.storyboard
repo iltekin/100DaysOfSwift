@@ -96,6 +96,7 @@
                         <outlet property="descriptionTextField" destination="UxE-nD-SSX" id="fbd-ut-vSV"/>
                         <outlet property="mapView" destination="Qjs-E6-FWU" id="K8q-2E-deM"/>
                         <outlet property="nameTextField" destination="SwW-mE-gU0" id="Yhs-Ax-jZi"/>
+                        <outlet property="saveButton" destination="BnM-LY-iq3" id="thg-Qv-M2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
